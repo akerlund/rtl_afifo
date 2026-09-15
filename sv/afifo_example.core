@@ -25,10 +25,25 @@ filesets:
       - "akerlund::vip_report_server:0"
 
 targets:
-  default:
+  default: &default
     flow: sim
     flow_options:
-      tool: verilator
+      tool: vcs
+      # 3-stage mode analyses with vlogan first, which does not see -ntb_opts
+      # here and so cannot resolve uvm_macros.svh or uvm_pkg. One vcs
+      # invocation does analysis and elaboration together, which is also how
+      # the sibling repos build their UVM testbenches.
+      2_stage_flow: true
+      vcs_options:
+        - -ntb_opts
+        - uvm-1.2
+        # Queue for a licence instead of failing when the pool is busy.
+        - -licqueue
+      run_options:
+        - +UVM_TESTNAME=tc_fi_basic
     filesets:
       - tb
     toplevel: fi_tb_top
+
+  uvm:
+    <<: *default
