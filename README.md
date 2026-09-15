@@ -1,11 +1,10 @@
 # Asynchronous FIFO
 
-![Verilator](https://img.shields.io/badge/Verilator-5.050-brightgreen)
-![cocotb](https://img.shields.io/badge/cocotb-2.0.1-brightgreen)
-![pyUVM](https://img.shields.io/badge/pyUVM-4.0.1-brightgreen)
-![FuseSoC](https://img.shields.io/badge/FuseSoC-2.4.6-brightgreen)
-![VCS](https://img.shields.io/badge/VCS-2025.06-brightgreen)
-
+![Verilator](https://img.shields.io/badge/Verilator-5.050-green)
+![cocotb](https://img.shields.io/badge/cocotb-2.0.1-green)
+![pyUVM](https://img.shields.io/badge/pyUVM-4.0.1-green)
+![VCS](https://img.shields.io/badge/VCS-2025.06-green)
+![FuseSoC](https://img.shields.io/badge/FuseSoC-2.4.6-blue)
 A dual-clock FIFO: the write side runs on `clk_wp`, the read side on `clk_rp`,
 and neither needs to know the other's frequency or phase.
 
